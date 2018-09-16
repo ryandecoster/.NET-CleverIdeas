@@ -1,0 +1,10 @@
+C:\Users\Ryan\documents\github\.net-cleverideas\bin\Debug\netcoreapp2.0\CleverIdeas.deps.json
+C:\Users\Ryan\documents\github\.net-cleverideas\bin\Debug\netcoreapp2.0\CleverIdeas.runtimeconfig.json
+C:\Users\Ryan\documents\github\.net-cleverideas\bin\Debug\netcoreapp2.0\CleverIdeas.runtimeconfig.dev.json
+C:\Users\Ryan\documents\github\.net-cleverideas\bin\Debug\netcoreapp2.0\CleverIdeas.dll
+C:\Users\Ryan\documents\github\.net-cleverideas\bin\Debug\netcoreapp2.0\CleverIdeas.pdb
+C:\Users\Ryan\documents\github\.net-cleverideas\obj\Debug\netcoreapp2.0\CleverIdeas.csproj.CoreCompileInputs.cache
+C:\Users\Ryan\documents\github\.net-cleverideas\obj\Debug\netcoreapp2.0\CleverIdeas.AssemblyInfoInputs.cache
+C:\Users\Ryan\documents\github\.net-cleverideas\obj\Debug\netcoreapp2.0\CleverIdeas.AssemblyInfo.cs
+C:\Users\Ryan\documents\github\.net-cleverideas\obj\Debug\netcoreapp2.0\CleverIdeas.dll
+C:\Users\Ryan\documents\github\.net-cleverideas\obj\Debug\netcoreapp2.0\CleverIdeas.pdb

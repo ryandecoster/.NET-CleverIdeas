@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css" />
+    @model ViewModel
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+        <span class="navbar-brand">Clever Ideas</span>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class='nav-link' href="/clever_ideas">Clever Ideas</a>
+            </li>
+            <li class="nav-item">
+                <a class='nav-link' href="/logout">Logout</a>
+            </li>
+        </ul>
+        </nav><br>
+        <table>
+            <tr>
+                <td><a href="/users/@Model.Ideas.Creator.UserId">@Model.Ideas.Creator.Alias</a> says: </td>
+                <td><div class="idea">@Model.Ideas.Content</div></td>
+            </tr>
+        </table><br>
+        <b>People who liked this post:</b><br><br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td><b>Alias</b></td>
+                    <td style="width: 460px;"><b>Name</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in @Model.Ideas.LikesList) {
+                    <tr>
+                        <td><a href="/users/@person.LikedUser.UserId">@person.LikedUser.Alias</a></td>
+                        <td>@person.LikedUser.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

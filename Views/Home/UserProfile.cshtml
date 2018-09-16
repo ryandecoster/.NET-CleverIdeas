@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css" />
+    @model ViewModel
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+        <span class="navbar-brand">Clever Ideas</span>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class='nav-link' href="/clever_ideas">Clever Ideas</a>
+            </li>
+            <li class="nav-item">
+                <a class='nav-link' href="/logout">Logout</a>
+            </li>
+        </ul>
+        </nav><br>
+        <div class="top">
+            <table>
+                <tr>
+                    <td><span class="top_info">Name:</span></td>
+                    <td>@Model.Users.Name</td>
+                </tr>
+                <tr>    
+                    <td><span class="top_info">Alias:</span></td>
+                    <td>@Model.Users.Alias</td>
+                </tr>
+                <tr>
+                    <td><span class="top_info">Email:</span></td>
+                    <td>@Model.Users.Email</td>
+                </tr>
+            </table>
+        </div>
+        <table>
+            <tr>
+                <td>Total Number of Posts:</td>
+                <td>@Model.Users.Ideas.Count</td>
+            </tr>
+            <tr>
+                <td>Total Number of Likes:</td>
+                <td>@Model.Users.Likes.Count</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

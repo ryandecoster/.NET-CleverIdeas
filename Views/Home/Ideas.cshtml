@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+    @model ViewModel
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+        <span class="navbar-brand">Clever Ideas</span>
+        <h3>Hi @ViewBag.currentUser.Name!</h3>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class='nav-link active' href="/clever_ideas">Clever Ideas</a>
+            </li>
+            <li class="nav-item">
+                <a class='nav-link' href="/logout">Logout</a>
+            </li>
+        </ul>
+        </nav><br>
+        <table>
+            <form asp-action="PostIdea" asp-controller="Home" method="post">
+                <tr>
+                    <td><span asp-validation-for="Ideas.Content"></span></td>
+                </tr>
+                <tr>
+                    <td><textarea name="Ideas.Content" cols="130" rows="2" placeholder="  Post something witty here..."></textarea></td>
+                    <td><button class="btn btn-primary">Post</button></td>
+                </tr>
+            </form>
+        </table><br>
+        <table>
+            @foreach (var idea in @Model.allIdeas) {
+            <tr>
+                <td><a href="/users/@idea.Creator.UserId">@idea.Creator.Alias</a> says: </td>
+                <td><div class="idea">@idea.Content</div></td>
+                @if (@ViewBag.currentUser.UserId == @idea.UserId) {
+                    <td><a class="badge badge-danger" href="Delete/@idea.IdeaId"><i class="far fa-trash-alt"></i></a></td>
+                }
+            </tr>
+            <tr>
+                @if (@ViewBag.currentUser.UserId == @idea.UserId) {
+                    <td></td>
+                    <td><b>You posted this! &nbsp;</b></td>
+                }
+                else {
+                    int Count = 0;
+                    @foreach(var liker in @idea.LikesList) {
+                        @if(@liker.LikedUser == @ViewBag.currentUser) {
+                            Count = 1;
+                        }
+                    }
+                    if(Count == 1) {
+                        <td></td>
+                        <td><b>You liked this idea!</b></td>
+                    } 
+                    else {
+                        <td></td>
+                        <td><a class="badge badge-primary" href="Like/@idea.IdeaId">Like <i class="fas fa-thumbs-up"></i></a></td>
+                    }
+                }
+                @if (@idea.LikesList.Count == 1) {
+                    <td class="like" ><a href="clever_ideas/@idea.IdeaId">@idea.LikesList.Count person</a> likes this.</td>
+                }
+                else {
+                    <td class="like" ><a href="clever_ideas/@idea.IdeaId">@idea.LikesList.Count people</a> like this.</td>
+                }
+            </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
